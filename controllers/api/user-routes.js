@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Plants } = require('../../models');
+const { User, Plant } = require('../../models');
 
 
 // get all users
