@@ -7,12 +7,6 @@ const sequelize = require('../../config/connection');
 router.get('/', (req, res)=>{
     Plants.findAll({
         order: [['id', 'ASC']],
-        // attributes: [
-        //     'id',
-        //     'name',
-        //     'watering_schedule',
-        //     'soil_type'
-        // ],
     })
     .then(dbPlantsData => res.json(dbPlantsData))
     .catch(err => {
@@ -26,19 +20,7 @@ router.get('/:id', (req, res) => {
     Plants.findOne({
         where: {
             id: req.params.id
-        }//,
-        // attributes: [
-        //     'id',
-        //     'title',
-        //     'article',
-        //     'created_at'
-        // ],
-        // include: [
-        //     {
-        //         model: User,
-        //         attributes: ['username']
-        //     }
-        // ]
+        }
     })
     .then(dbPlantsData => {
         if (!dbPlantsData){
@@ -53,11 +35,11 @@ router.get('/:id', (req, res) => {
     });
 });
 
-
 // add a plant
 router.post('/', (req, res)=>{
     Plants.create({
-        name: req.body.name,
+        common_name: req.body.common_name,
+        latin_name: req.body.latin_name,
         watering_schedule: req.body.watering_schedule,
         soil_type: req.body.soil_type,
         light_req: req.body.light_req,

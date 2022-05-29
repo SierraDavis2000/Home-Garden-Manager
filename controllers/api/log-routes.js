@@ -15,6 +15,27 @@ router.get('/', (req, res)=>{
     });
 });
 
+// get 1 watering log
+router.get('/:id', (req, res)=>{
+    Logs.findOne({
+        where: {
+            id: req.params.id
+        },
+        order: [['createdAt', 'DESC']],        
+    })
+    .then(dbLogData =>{
+        if(!dbLogData){
+            res.status(404).json({message: 'No log found with this id'});
+            return;
+        }
+        res.json(dbLogData);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
+
 // create new watering log
 router.post('/', (req, res)=>{
     Logs.create({

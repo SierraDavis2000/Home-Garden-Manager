@@ -11,9 +11,15 @@ Plants.init(
             primaryKey: true,
             autoIncrement: true
         },
-        name: {
+        common_name: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            unique: true
+        },
+        latin_name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: true
         },
         watering_schedule: {
             type: DataTypes.STRING,
