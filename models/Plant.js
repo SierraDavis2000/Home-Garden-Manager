@@ -1,9 +1,9 @@
 const { Model, DataTypes} = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Plants extends Model {}
+class Plant extends Model {}
 
-Plants.init(
+Plant.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -11,9 +11,15 @@ Plants.init(
             primaryKey: true,
             autoIncrement: true
         },
-        name: {
+        common_name: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            unique: true
+        },
+        latin_name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: true
         },
         watering_schedule: {
             type: DataTypes.STRING,
@@ -51,13 +57,24 @@ Plants.init(
             type: DataTypes.STRING,
             allowNull: true
         },
+        // included to allow admins to identify user in case of bad data - doesn't need to be displayed
+        user_id: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
+            references: {
+                model: 'user',
+                key: 'id'
+            }
+        }
     },
     {
         sequelize,
+        // timestamp included for admins to identify if bad data submitted
+        timestamps: true,
         freezeTableName: true,
         underscored: true,
-        modelName: 'plants'
+        modelName: 'plant'
     }
 );
 
-module.exports = Plants;
+module.exports = Plant;

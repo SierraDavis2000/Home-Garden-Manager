@@ -1,15 +1,22 @@
 const User = require('./User');
-const Plants = require('./Plants');
-const Logs = require('./Logs')
+const Plant = require('./Plant');
+const Log = require('./Log')
 
-User.hasMany(Plants, {    
-    foreignKey: 'plants_id'
+// relationships/associations
+User.hasMany(Plant, {
+    foreignKey: 'user_id'
 });
 
-Plants.belongsToMany(User, {
-    through: User,
-    foreignKey: 'id'
+Plant.belongsTo(User, {
+    foreignKey: 'user_id'
+})
+
+User.hasMany(Log, {
+    foreignKey: 'user_id'
 });
 
+Log.belongsTo(User, {
+    foreignKey: 'user_id'
+})
 
-module.exports = {User, Plants, Logs};
+module.exports = {User, Plant, Log};

@@ -1,20 +1,20 @@
 const router = require('express').Router();
-const { User, Plants } = require('../../models');
+const { User, Plant } = require('../../models');
 const sequelize = require('../../config/connection');
 
 
 // get all plants
 router.get('/', (req, res)=>{
-    Plants.findAll({
-        order: [['id', 'ASC']],
-        // attributes: [
-        //     'id',
-        //     'name',
-        //     'watering_schedule',
-        //     'soil_type'
-        // ],
+    Plant.findAll({
+        order: [['common_name', 'ASC']],
+        include: [
+            {
+                model: User,
+                attributes: ['email']
+            }
+        ]
     })
-    .then(dbPlantsData => res.json(dbPlantsData))
+    .then(dbPlantData => res.json(dbPlantData))
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
@@ -23,29 +23,23 @@ router.get('/', (req, res)=>{
 
 // get 1 plant
 router.get('/:id', (req, res) => {
-    Plants.findOne({
+    Plant.findOne({
         where: {
             id: req.params.id
-        }//,
-        // attributes: [
-        //     'id',
-        //     'title',
-        //     'article',
-        //     'created_at'
-        // ],
-        // include: [
-        //     {
-        //         model: User,
-        //         attributes: ['username']
-        //     }
-        // ]
+        },
+        include: [
+            {
+                model: User,
+                attributes: ['email']
+            }
+        ]
     })
-    .then(dbPlantsData => {
-        if (!dbPlantsData){
+    .then(dbPlantData => {
+        if (!dbPlantData){
             res.status(404).json({message: 'No plant found with this id'});
             return;
         }
-        res.json(dbPlantsData);
+        res.json(dbPlantData);
     })
     .catch(err => {
         console.log(err);
@@ -53,11 +47,11 @@ router.get('/:id', (req, res) => {
     });
 });
 
-
 // add a plant
 router.post('/', (req, res)=>{
-    Plants.create({
-        name: req.body.name,
+    Plant.create({
+        common_name: req.body.common_name,
+        latin_name: req.body.latin_name,
         watering_schedule: req.body.watering_schedule,
         soil_type: req.body.soil_type,
         light_req: req.body.light_req,
@@ -66,9 +60,10 @@ router.post('/', (req, res)=>{
         indoor_outdoor: req.body.indoor_outdoor,
         pest_info: req.body.pest_info,
         companion_planning: req.body.companion_planning,
-        pet_care: req.body.pet_care
+        pet_care: req.body.pet_care,
+        user_id: req.body.user_id
     })
-    .then(dbPlantsData => res.json(dbPlantsData))
+    .then(dbPlantData => res.json(dbPlantData))
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
