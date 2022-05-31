@@ -105,6 +105,12 @@ img {
   font-weight: bold;
 }
 
+.plant-info {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
 /* CARDS */
 .card {
   margin: 20px;
