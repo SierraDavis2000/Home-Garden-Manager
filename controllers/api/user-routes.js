@@ -41,7 +41,16 @@ router.post('/', (req, res) => {
         email: req.body.email,
         password: req.body.password
     })
-        .then(dbUserData => res.json(dbUserData))
+        //Jenna updating .then to include login session code ln 45-53
+        .then(dbUserData => {
+            req.session.save(() => {
+                req.session.user_id = dbUserData.id;
+                req.session.username = dbUserData.username;
+                req.session.loggedIn = true;
+
+                res.json(dbUserData);
+            });
+        })
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
@@ -65,9 +74,17 @@ router.post('/login', (req, res) => {
             res.status(400).json({ message: 'Password incorrect' });
             return;
         }
-        res.json({ user: dbUserData, message: 'Login successful!' });
-    });
-})
+        //Jenna adding lines 76-81 for login session 
+        req.session.save(() => {
+            // declare session variables
+            req.session.user_id = dbUserData.id;
+            req.session.username = dbUserData.username;
+            req.session.loggedIn = true;
+
+            res.json({ user: dbUserData, message: 'Login successful!' });
+        });
+    })
+});
 
 
 // could add PUT route here if needed
