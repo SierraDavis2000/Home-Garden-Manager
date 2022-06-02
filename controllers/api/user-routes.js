@@ -41,7 +41,7 @@ router.post('/', (req, res) => {
         email: req.body.email,
         password: req.body.password
     })
-    .then(dbUserData => res.json(dbUserData)) 
+   
 
     //    //Jenna updating .then to include login session code ln 45-55
     //    // doesn't work at the moment
@@ -54,7 +54,6 @@ router.post('/', (req, res) => {
     //             res.json(dbUserData);
     //         });
     //     })
-
 
         .then(dbUserData => res.json(dbUserData))
         .catch(err => {
