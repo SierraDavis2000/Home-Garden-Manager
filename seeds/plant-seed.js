@@ -131,6 +131,6 @@ const plantData = [
  //madigascar jewel 
 ]
 
-const seedPlants = () => Plant.bulkCreate(plantData);
+const seedPlant = () => Plant.bulkCreate(plantData);
 
-module.exports = seedPlants;
+module.exports = seedPlant;
