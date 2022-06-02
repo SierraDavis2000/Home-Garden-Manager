@@ -55,6 +55,11 @@ router.post('/', (req, res) => {
     //         });
     //     })
 
+<<<<<<< HEAD
+=======
+
+        .then(dbUserData => res.json(dbUserData))
+>>>>>>> 1d330cece1178f8597cc7de0a1d288423e2881e0
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
@@ -78,6 +83,10 @@ router.post('/login', (req, res) => {
             res.status(400).json({ message: 'Password incorrect' });
             return;
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1d330cece1178f8597cc7de0a1d288423e2881e0
     //    //Jenna adding lines 76-81 for login session 
     //    // doesn't work at the moment
     //     req.session.save(() => {
@@ -90,6 +99,14 @@ router.post('/login', (req, res) => {
     //     });
     })
 });
+<<<<<<< HEAD
+=======
+
+        res.json({ user: dbUserData, message: 'Login successful!' });
+    });
+})
+
+>>>>>>> 1d330cece1178f8597cc7de0a1d288423e2881e0
 
 router.post('/logout', (req, res) => {
     if (req.session.loggedIn) {
