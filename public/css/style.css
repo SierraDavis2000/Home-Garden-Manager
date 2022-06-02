@@ -77,7 +77,7 @@ nav a:hover {
 /* Searchbar */
 .wrapper{
   max-width: 450px;
-  margin: 150px auto;
+  margin: 25px;
 }
 .wrapper .search-input{
   background: #fff;
