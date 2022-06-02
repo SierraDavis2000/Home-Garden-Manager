@@ -17,12 +17,16 @@ router.get('/', (req, res)=>{
     })
     .then(dbPlantData => {
         // pass a single plant object into the homepage template
-        res.render('homepage', dbPlantData[0]);
+        
+        //res.render('homepage', dbPlantData[0]);
         
         //NEED SEED?
         // //loops over each object and serializes it
-        // const plants = dbPlantData.map(plant => plant.get({ plain: true }));
-        // res.render('homepage', dbPlantData[0].get({ plain: true }));
+        const plants = dbPlantData.map(plant => plant.get({ plain: true }));
+        res.render('', {
+            plants,
+            loggedIn: req.session.loggedIn
+          });
       })
     .catch(err => {
         console.log(err);
