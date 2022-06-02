@@ -1,0 +1,13 @@
+{{#if posts.length}}
+<section>
+  <h2>Waterlogs</h2>
+    {{#each posts as |post|}}
+      {{> waterlog-content post}}
+    {{/each}}
+
+</section>
+{{/if}}
+
+<button type="submit" class="btn"><a class="link" href="/waterlog/new">+ New WaterLog</a></button>
+
+<script src="/js/add.js"></script>
