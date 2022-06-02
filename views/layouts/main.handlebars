@@ -18,11 +18,18 @@
   <nav>
     <a href="/">Home</a>
     {{#if loggedIn}}
-    <input id="search" class="btn-no-style" type="search">
     <button id="waterLog" class="btn-no-style">Water Log</button>
     <button id="logout" class="btn-no-style">Logout</button>
     {{else}}
     <a href="/login">Login</a>
+    <div class="search-input">
+      <a href="" target="_blank" hidden></a>
+      <input type="text" placeholder="Type to search..">
+      <div class="autocom-box">
+        <!-- here list are inserted from javascript -->
+      </div>
+      <div class="icon"><i class="fas fa-search"></i></div>
+    </div>
     {{/if}}
   </nav>
   <main>
@@ -33,6 +40,8 @@
   {{#if loggedIn}}
   <script src="/js/logout.js"></script>
   {{/if}}
+  <script src="/js/suggestions.js"></script> 
+  <script src="/js/searchbar.js"></script> 
 </body>
 
 </html>
