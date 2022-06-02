@@ -49,10 +49,6 @@ Plant.init(
             type: DataTypes.STRING,
             allowNull: true
         },
-        companion_planning: {
-            type: DataTypes.STRING,
-            allowNull: true
-        },
         pet_care: {
             type: DataTypes.STRING,
             allowNull: true
