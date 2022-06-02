@@ -94,11 +94,6 @@ router.post('/login', (req, res) => {
     })
 });
 
-        res.json({ user: dbUserData, message: 'Login successful!' });
-    });
-})
-
-
 router.post('/logout', (req, res) => {
     if (req.session.loggedIn) {
         req.session.destroy(() => {
