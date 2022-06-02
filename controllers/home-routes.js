@@ -1,15 +1,4 @@
 const router = require('express').Router();
-<<<<<<< HEAD
-const { User, Plant } = require('../../models');
-const sequelize = require('../../config/connection');
-
-
-router.get('/login', (req, res) => {
-    res.render('login');
-  });
-
-  module.exports = router;
-=======
 const sequelize = require('../config/connection');
 const { Plant, User, Log } = require('../models');
 
@@ -40,5 +29,8 @@ router.get('/', (req, res)=>{
     });
 });
 
+router.get('/login', (req, res) => {
+    res.render('login');
+  });
+  
 module.exports = router;
->>>>>>> feature/html-routes
