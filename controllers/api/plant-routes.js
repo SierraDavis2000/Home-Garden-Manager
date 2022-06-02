@@ -59,7 +59,6 @@ router.post('/', (req, res)=>{
         space_req: req.body.space_req,
         indoor_outdoor: req.body.indoor_outdoor,
         pest_info: req.body.pest_info,
-        companion_planning: req.body.companion_planning,
         pet_care: req.body.pet_care,
         user_id: req.body.user_id
     })
