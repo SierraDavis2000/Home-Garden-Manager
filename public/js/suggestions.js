@@ -1,5 +1,4 @@
 let suggestions = [
-    "daisy",
     "Aloe Vera",
     "Begonia",
     "Bird of Paradise Plant",
@@ -7,4 +6,6 @@ let suggestions = [
     "Cucumber",
     "Tomatoes",
     "Butternut Squash",
+    "Boston Fern",
+    "Croton",
 ];

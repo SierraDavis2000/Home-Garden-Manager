@@ -92,8 +92,11 @@ router.post('/login', (req, res) => {
     })
 });
 
+<<<<<<< HEAD
 
  
+=======
+>>>>>>> 7ffacff9013ff418371972eccdc6fa9786d39b4e
 router.post('/logout', (req, res) => {
     if (req.session.loggedIn) {
         req.session.destroy(() => {
