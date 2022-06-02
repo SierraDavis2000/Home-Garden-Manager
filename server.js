@@ -15,9 +15,10 @@ const PORT = process.env.PORT || 3001;
 
 // 'sess' will go here
 
-// 'engine' will go here (for handlebars)
-// set engine will go here
-
+// 'engine' will go here (for handlebars) added by Jenna
+app.engine('handlebars', hbs.engine);
+// set engine will go here /added by Jenna
+app.set('view engine', 'handlebars');
 
 app.use(express.json());
 app.use(express.urlencoded({ extend: true }));
