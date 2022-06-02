@@ -5,7 +5,7 @@ const withAuth = require('../utils/auth');
 
 // NEED SEED
 // get all plants
-router.get('/', (req, res)=>{
+router.get('/', (req, res) => {
     Plant.findAll({
         order: [['common_name', 'ASC']],
         include: [
@@ -15,88 +15,55 @@ router.get('/', (req, res)=>{
             }
         ]
     })
-    .then(dbPlantData => {
-        // pass a single plant object into the homepage template
-        
-        res.render('homepage', dbPlantData[0]);
-        
-        //NEED SEED?
-        // //loops over each object and serializes it
-        // const plants = dbPlantData.map(plant => plant.get({ plain: true }));
-        // res.render('homepage', {
-        //     plants,
-        //     loggedIn: req.session.loggedIn
-        //   });
-      })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
+        .then(dbPlantData => {
+            // pass a single plant object into the homepage template
+
+            res.render('homepage', dbPlantData[0]);
+
+            //NEED SEED?
+            // //loops over each object and serializes it
+            // const plants = dbPlantData.map(plant => plant.get({ plain: true }));
+            // res.render('homepage', {
+            //     plants,
+            //     loggedIn: req.session.loggedIn
+            //   });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
-router.get('/', (req, res)=>{
-    Plant.findAll({
-        order: [['common_name', 'ASC']],
-        include: [
-            {
-                model: User,
-                attributes: ['email']
-            }
-        ]
-    })
-    .then(dbPlantData => {
-        // pass a single plant object into the homepage template
-        
-        res.render('gallery', dbPlantData[0]);
-        
-        //NEED SEED?
-        // //loops over each object and serializes it
-        // const plants = dbPlantData.map(plant => plant.get({ plain: true }));
-        // res.render('homepage', {
-        //     plants,
-        //     loggedIn: req.session.loggedIn
-        //   });
-      })
-    .catch(err => {
+
+// GET all plants for homepage
+router.get('/', async (req, res) => {
+    try {
+        const dbPlantData = await Plant.findAll({
+            attributes: [
+                'id',
+                'common_name',
+                'latin_name',
+                'watering_schedule',
+                'soil_type',
+                'light_req',
+                'fertilizer_req',
+                'space_req',
+                'indoor_outdoor',
+                'pest_info',
+                'pet_care'
+            ]
+        });
+
+        const plants = dbPlantData.map((plant) =>
+            plant.get({ plain: true })
+        );
+
+        res.render('homepage', plants);
+    } catch (err) {
         console.log(err);
         res.status(500).json(err);
-    });
+    }
 });
-
-// // GET all plants for homepage
-// router.get('/', async (req, res) => {
-//   try {
-//     const dbPlantData = await Plant.findAll({
-//       include:[
-//         {model: Plant,
-//         attributes: [
-//             'id',
-//             'common_name',
-//             'latin_name',
-//             'water_schedule',
-//             'soil_type',
-//             'light_req',
-//             'fertilizer_req',
-//             'space_req',
-//             'indoor_outdoor',
-//             'pest_info',
-//             'pet_care'
-    
-//           ],}
-//       ]
-      
-//     });
-
-//     const plants = dbPlantData.map((plant) =>
-//       plant.get({ plain: true })
-//     );
-
-//     res.render('homepage', dbPlantData[0].get({ plain: true }));
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json(err);
-//   }
-// });
 
 // GET one plant
 // Use the custom middleware before allowing the user to access the gallery
@@ -120,7 +87,7 @@ router.get('/', (req, res)=>{
 //             'indoor_outdoor',
 //             'pest_info',
 //             'pet_care'
-    
+
 //           ],
 //         },
 //       ],
@@ -162,7 +129,7 @@ router.get('/', (req, res)=>{
 //   res.render('login');
 // });
 router.get('/login', (req, res) => {
-  res.render('login');
+    res.render('login');
 });
 
 module.exports = router;

@@ -92,21 +92,16 @@ router.post('/login', (req, res) => {
     })
 });
 
-<<<<<<< HEAD
-
- 
-=======
->>>>>>> 7ffacff9013ff418371972eccdc6fa9786d39b4e
-router.post('/logout', (req, res) => {
-    if (req.session.loggedIn) {
-        req.session.destroy(() => {
-          res.status(204).end();
-        });
-      }
-      else {
-        res.status(404).end();
-      }
-});
+// router.post('/logout', (req, res) => {
+//     if (req.session.loggedIn) {
+//         req.session.destroy(() => {
+//           res.status(204).end();
+//         });
+//       }
+//       else {
+//         res.status(404).end();
+//       }
+// });
 // could add PUT route here if needed
 
 // delete a user - not necessary for MVP but for future versions
