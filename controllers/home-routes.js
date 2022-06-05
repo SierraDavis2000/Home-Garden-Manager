@@ -3,9 +3,9 @@ const sequelize = require('../config/connection');
 const { Plant, User, Log } = require('../models');
 const withAuth = require('../utils/auth');
 
-// NEED SEED
 // get all plants
 router.get('/', (req, res)=>{
+   console.log(req.session);
     Plant.findAll({
         order: [['common_name', 'ASC']],
         include: [
@@ -34,34 +34,35 @@ router.get('/', (req, res)=>{
     });
 });
 
-router.get('/', (req, res)=>{
-    Plant.findAll({
-        order: [['common_name', 'ASC']],
-        include: [
-            {
-                model: User,
-                attributes: ['email']
-            }
-        ]
-    })
-    .then(dbPlantData => {
-        // pass a single plant object into the homepage template
+//starting code to try to get plants to render to homepage
+// router.get('/', (req, res)=>{
+//     Plant.findAll({
+//         order: [['common_name', 'ASC']],
+//         include: [
+//             {
+//                 model: User,
+//                 attributes: ['email']
+//             }
+//         ]
+//     })
+//     .then(dbPlantData => {
+//         // pass a single plant object into the homepage template
         
-        res.render('gallery', dbPlantData[0]);
+//         res.render('gallery', dbPlantData[0]);
         
-        //NEED SEED?
-        // //loops over each object and serializes it
-        // const plants = dbPlantData.map(plant => plant.get({ plain: true }));
-        // res.render('homepage', {
-        //     plants,
-        //     loggedIn: req.session.loggedIn
-        //   });
-      })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
-});
+//         //NEED SEED?
+//         // //loops over each object and serializes it
+//         // const plants = dbPlantData.map(plant => plant.get({ plain: true }));
+//         // res.render('homepage', {
+//         //     plants,
+//         //     loggedIn: req.session.loggedIn
+//         //   });
+//       })
+//     .catch(err => {
+//         console.log(err);
+//         res.status(500).json(err);
+//     });
+// });
 
 // // GET all plants for homepage
 // router.get('/', async (req, res) => {
@@ -152,18 +153,15 @@ router.get('/', (req, res)=>{
 //     res.status(500).json(err);
 //   }
 // });
-//session code
-// router.get('/login', (req, res) => {
-//   if (req.session.loggedIn) {
-//     res.redirect('/');
-//     return;
-//   }
 
-//   res.render('login');
-// });
+//session code; redirects user to homepage if they click 'login' and are already logged-in
 router.get('/login', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+
   res.render('login');
 });
 
 module.exports = router;
-

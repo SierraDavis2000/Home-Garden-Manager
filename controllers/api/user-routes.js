@@ -91,12 +91,12 @@ router.post('/login', (req, res) => {
 router.post('/logout', (req, res) => {
     if (req.session.loggedIn) {
         req.session.destroy(() => {
-            res.status(204).end();
+          res.status(204).end();
         });
-    }
-    else {
+      }
+      else {
         res.status(404).end();
-    }
+      }
 });
 // could add PUT route here if needed
 
@@ -119,6 +119,5 @@ router.delete('/:id', (req, res) => {
             res.status(500).json(err);
         });
 });
-
 
 module.exports = router;
