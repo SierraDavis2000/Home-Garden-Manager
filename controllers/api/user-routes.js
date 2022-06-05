@@ -41,7 +41,7 @@ router.post('/', (req, res) => {
         email: req.body.email,
         password: req.body.password
     })
-        //    //Jenna updating .then to include login session code ln 45-55
+        //    //Jenna updating .then to include login session code ln 47-55
          //use this .then if session code doesn't work 
         // .then(dbUserData => res.json(dbUserData))
         .then(dbUserData => {
@@ -76,9 +76,8 @@ router.post('/login', (req, res) => {
             res.status(400).json({ message: 'Password incorrect' });
             return;
         }
-        //    //Jenna adding lines 76-81 for login session 
-        //    // doesn't work at the moment
-        req.session.save(() => {
+           //Jenna adding lines 80-87 for login session 
+            req.session.save(() => {
             // declare session variables
             req.session.user_id = dbUserData.id;
             req.session.username = dbUserData.username;
