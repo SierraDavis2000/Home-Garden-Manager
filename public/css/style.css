@@ -195,7 +195,6 @@ img {
 
 .login-card {
   margin: 0 0 20px 0;
-  flex: 0 0 50%;
   max-width: 50%;
   padding: 5px;
   border: 3px solid var(--dark);
@@ -239,4 +238,16 @@ img {
   flex-flow: column wrap;
   align-content: flex-start;
   align-items: center;
+}
+
+@media screen and (min-width: 640px) {
+  .login-card{
+    flex: 0 0 50%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .login-card{
+    flex: 0 0 50%;
+  }
 }

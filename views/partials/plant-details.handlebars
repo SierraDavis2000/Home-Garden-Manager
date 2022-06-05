@@ -1,25 +1,19 @@
 <section class="card">
-<<<<<<< HEAD
-  <a href="/plant/{{id}}">
-=======
-  <a href="/plants/{{id}}">
->>>>>>> feature/login
     <header>{{common_name}}</header>
 
     <div class="card-body">
       <img src="/images/{{filename}}" alt="{{description}}">
       <h2 class="plant-name">{{common_name}}</h2>
-      <p>{{latin_name}}</p>
+      <p><i>{{latin_name}}</i></p>
       <ul class="plant-info">
-        <li>{{watering_schedule}}</li>
-        <li>{{soil_type}}</li>
-        <li>{{light_req}}</li>
-        <li>{{fertilizer_req}}</li>
-        <li>{{space_req}}</li>
-        <li>{{indoor_outdoor}}</li>
-        <li>{{pest_info}}</li>
-        <li>{{pet_care}}</li>
+        <li>Watering Schedule: {{watering_schedule}}</li>
+        <li>Soil Type: {{soil_type}}</li>
+        <li>Light Requirements: {{light_req}}</li>
+        <li>Fertilizer Requirements: {{fertilizer_req}}</li>
+        <li>Space Requirements: {{space_req}}</li>
+        <li>Indoor/Outdoor: {{indoor_outdoor}}</li>
+        <li>Pest Information: {{pest_info}}</li>
+        <li>Toxicity for Pets: {{pet_care}}</li>
       </ul>
     </div>
-  </a>
 </section>
