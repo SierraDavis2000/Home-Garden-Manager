@@ -3,27 +3,46 @@ const sequelize = require('../config/connection');
 const { Plant, User, Log } = require('../models');
 const withAuth = require('../utils/auth');
 
-// get all plants
-router.get('/', (req, res)=>{
-   console.log(req.session);
-    Plant.findAll({
-        order: [['common_name', 'ASC']],
-        include: [
-            {
-                model: User,
-                attributes: ['email']
-            }
-        ]
+router.get('/', (req, res) => {
+  res.render('homepage');
+});
+
+router.get('/login', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+  res.render('login');
+});
+
+//get all plants
+router.get('/plant-details', (req, res)=>{
+  // console.log(req.session);
+   Plant.findAll({
+    attributes: [
+      'id',
+      'common_name',
+      'latin_name',
+      'water_schedule',
+      'soil_type',
+      'light_req',
+      'fertilizer_req',
+      'space_req',
+      'indoor_outdoor',
+      'pest_info',
+      'pet_care'
+    ],
     })
     .then(dbPlantData => {
         // pass a single plant object into the homepage template
         
-        res.render('homepage', dbPlantData[0]);
+       res.render('plants', dbPlantData[0]);
         
         //NEED SEED?
         // //loops over each object and serializes it
         // const plants = dbPlantData.map(plant => plant.get({ plain: true }));
-        // res.render('homepage', {
+        // console.log(dbPlantData);
+        // res.render('plant-details', {
         //     plants,
         //     loggedIn: req.session.loggedIn
         //   });
@@ -66,6 +85,7 @@ router.get('/', (req, res)=>{
 
 // // GET all plants for homepage
 // router.get('/', async (req, res) => {
+//   console.log(req.session);
 //   try {
 //     const dbPlantData = await Plant.findAll({
 //       include:[
@@ -155,13 +175,13 @@ router.get('/', (req, res)=>{
 // });
 
 //session code; redirects user to homepage if they click 'login' and are already logged-in
-router.get('/login', (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect('/');
-    return;
-  }
+// router.get('/login', (req, res) => {
+//   if (req.session.loggedIn) {
+//     res.redirect('/');
+//     return;
+//   }
 
-  res.render('login');
-});
+//   res.render('login');
+// });
 
 module.exports = router;
