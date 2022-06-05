@@ -18,7 +18,9 @@
   <nav>
     <a href="/">Home</a>
     {{#if loggedIn}}
-    <button id="waterLog" class="btn-no-style">Water Log</button>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/waterlog">Water Log</a>
+    <a href="/add-plant">Add Plant</a>
     <button id="logout" class="btn-no-style">Logout</button>
     {{else}}
     <a href="/login">Login</a>
@@ -45,8 +47,8 @@
   {{#if loggedIn}}
   <script src="/js/logout.js"></script>
   {{/if}}
-  <script src="/js/suggestions.js"></script> 
-  <script src="/js/searchbar.js"></script> 
+  <script src="/js/suggestions.js"></script>
+  <script src="/js/searchbar.js"></script>
 </body>
 
 </html>

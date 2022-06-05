@@ -4,10 +4,10 @@
     {{#each posts as |post|}}
       {{> waterlog-content post}}
     {{/each}}
-
+  <button type="submit" class="btn"><a class="link" href="/waterlog/edit">Edit</a></button>
 </section>
 {{/if}}
 
 <button type="submit" class="btn"><a class="link" href="/waterlog/new">+ New WaterLog</a></button>
 
-<script src="/js/add.js"></script>
+<script src="/js/addWaterlog.js"></script>

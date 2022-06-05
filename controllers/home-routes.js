@@ -141,7 +141,7 @@ router.get('/plant-details', (req, res)=>{
 //             'indoor_outdoor',
 //             'pest_info',
 //             'pet_care'
-    
+
 //           ],
 //         },
 //       ],

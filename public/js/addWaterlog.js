@@ -13,5 +13,5 @@ const newFormHandler = async function(event) {
     headers: { 'Content-Type': 'application/json' },
   });
 };
-    
+  
 document.querySelector('#new-post').addEventListener('submit', newFormHandler);
