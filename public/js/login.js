@@ -34,7 +34,8 @@ async function signupFormHandler(event){
     });
 
     if (response.ok) {
-      document.location.replace('/dashboard');
+      console.log('You are logged in!');
+      document.location.replace('/');
     } else {
       alert(response.statusText);
     }
