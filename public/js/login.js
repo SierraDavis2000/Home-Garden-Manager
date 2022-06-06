@@ -12,6 +12,7 @@ async function loginFormHandler(event){
     });
 
     if (response.ok) {
+      console.log('You are logged in!')
       document.location.replace('/');
     } else {
       alert(response.statusText);
@@ -34,7 +35,6 @@ async function signupFormHandler(event){
     });
 
     if (response.ok) {
-      console.log('You are logged in!');
       document.location.replace('/');
     } else {
       alert(response.statusText);
