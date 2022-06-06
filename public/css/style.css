@@ -76,12 +76,16 @@ nav a:hover {
 
 /* Searchbar */
 .wrapper{
-  max-width: 450px;
-  margin: 25px;
+  width: 450px;
+  margin: 25px auto;
+}
+.search-input{
+  width: 400px;
+  margin: 0 35px
 }
 .wrapper .search-input{
   background: #fff;
-  width: 100%;
+  width: 375px;
   border-radius: 5px;
   position: relative;
   box-shadow: 0px 1px 5px 3px rgba(0,0,0,0.12);
@@ -151,12 +155,11 @@ nav a:hover {
 .btn-no-style {
   background: none;
   border: none;
-  padding: 0;
+  padding: 14px 20px;
   cursor: pointer;
   text-decoration: none;
   font-size: 100%;
   transition: color 0.1s;
-  margin-left: 16px;
 }
 
 img {
@@ -194,8 +197,8 @@ img {
 }
 
 .login-card {
-  margin: 0 0 20px 0;
-  max-width: 50%;
+  width: 300px;
+  margin: 10px;
   padding: 5px;
   border: 3px solid var(--dark);
   border-radius: var(--border-radius);
@@ -240,14 +243,27 @@ img {
   align-items: center;
 }
 
-@media screen and (min-width: 640px) {
+@media screen and (max-width: 640px) {
   .login-card{
     flex: 0 0 50%;
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 768px) {
   .login-card{
     flex: 0 0 50%;
+  }
+  nav{
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  .row{
+    display: block;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  main{
+    display: block;
   }
 }
