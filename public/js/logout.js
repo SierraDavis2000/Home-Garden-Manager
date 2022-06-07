@@ -8,7 +8,7 @@ const logout = async () => {
     console.log('You are logged out!');
     document.location.replace('/');
   } else {
-    alert('Failed to log out.');
+    alert('You are not signed in!');
   }
 };
 
