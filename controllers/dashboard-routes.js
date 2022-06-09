@@ -37,7 +37,7 @@ router.get('/', (req, res) => {
   //     attributes: ['username']
   //   }
   // },
-     ]
+    ]
   })
   .then(dbPlantData => {
     // serialize data before passing to template
@@ -49,5 +49,8 @@ router.get('/', (req, res) => {
       res.status(500).json(err);
     });
 });
+
+
+
 
 module.exports = router;

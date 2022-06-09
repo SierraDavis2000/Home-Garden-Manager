@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home Garden</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
   <link rel="stylesheet" type="text/css" href="/css/jass.css">
   <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
@@ -14,16 +14,20 @@
   <header>
     <h1>Welcome to Home Garden</h1>
   </header>
-
+  
   <nav>
     <a href="/">Home</a>
-    {{#if loggedIn}}
+    {{!-- {{#if loggedIn}} --}}
     <a href="/dashboard">Dashboard</a>
     <a href="/waterlog">Water Log</a>
+<<<<<<< HEAD
+=======
+    <a href="/add-plant">Add Plant</a>
+>>>>>>> b3da452cdc50895883d51ef152a232cce8f43234
     <button id="logout" class="btn-no-style">Logout</button>
-    {{else}}
+    {{!-- {{else}} --}}
     <a href="/login">Login</a>
-    {{/if}}
+    {{!-- {{/if}} --}}
   </nav>
 
   <main>
@@ -53,10 +57,17 @@
       {{{body}}}
     </div>
   </main>
+<<<<<<< HEAD
 
   {{#if loggedIn}}
   <script src="/js/logout.js"></script>
   {{/if}}
+=======
+  
+  {{!-- {{#if loggedIn}} --}}
+  <script src="/js/logout.js"></script>
+  {{!-- {{/if}} --}}
+>>>>>>> b3da452cdc50895883d51ef152a232cce8f43234
   <script src="/js/suggestions.js"></script>
   <script src="/js/searchbar.js"></script>
 </body>
