@@ -17,14 +17,13 @@
   
   <nav>
     <a href="/">Home</a>
-    {{!-- {{#if loggedIn}} --}}
+    {{#if loggedIn}}
     <a href="/dashboard">Dashboard</a>
     <a href="/waterlog">Water Log</a>
-    <a href="/add-plant">Add Plant</a>
     <button id="logout" class="btn-no-style">Logout</button>
-    {{!-- {{else}} --}}
+    {{else}}
     <a href="/login">Login</a>
-    {{!-- {{/if}} --}}
+    {{/if}}
   </nav>
 
   <main>
@@ -37,16 +36,27 @@
         </div>
         <div class="icon"><i class="fas fa-search"></i></div>
       </div>
+
+      <div>
+        {{#if loggedIn}}
+        <a href="/add-plant">
+          <button>Add New Plant</button>
+        </a>
+        <a href="/add-waterlog">
+        <button>Add a Water Log</button>
+        </a>
+        {{/if}}
+      </div>
     </div>
 
     <div class="gallery">
       {{{body}}}
     </div>
   </main>
-  
-  {{!-- {{#if loggedIn}} --}}
+
+  {{#if loggedIn}}
   <script src="/js/logout.js"></script>
-  {{!-- {{/if}} --}}
+  {{/if}}
   <script src="/js/suggestions.js"></script>
   <script src="/js/searchbar.js"></script>
 </body>

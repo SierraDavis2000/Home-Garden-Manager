@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Plant, User, Log } = require('../models');
-const withAuth = require('../utils/auth');
+//const withAuth = require('../utils/auth');
 
 //renders plant cards to homepage
 
@@ -64,6 +64,7 @@ router.get('/login', (req, res) => {
   }
   res.render('login');
 });
+
 
 
 module.exports = router;

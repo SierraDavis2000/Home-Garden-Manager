@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
         include: [
             {
                 model: User,
-                attributes: ['email']
+                attributes: ['id', 'username']
             }
         ]
     })
@@ -30,7 +30,7 @@ router.get('/:id', (req, res) => {
         include: [
             {
                 model: User,
-                attributes: ['email']
+                attributes: ['id', 'username']
             }
         ]
     })
