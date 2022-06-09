@@ -17,17 +17,13 @@
   
   <nav>
     <a href="/">Home</a>
-    {{!-- {{#if loggedIn}} --}}
+    {{#if loggedIn}}
     <a href="/dashboard">Dashboard</a>
     <a href="/waterlog">Water Log</a>
-<<<<<<< HEAD
-=======
-    <a href="/add-plant">Add Plant</a>
->>>>>>> b3da452cdc50895883d51ef152a232cce8f43234
     <button id="logout" class="btn-no-style">Logout</button>
-    {{!-- {{else}} --}}
+    {{else}}
     <a href="/login">Login</a>
-    {{!-- {{/if}} --}}
+    {{/if}}
   </nav>
 
   <main>
@@ -57,17 +53,10 @@
       {{{body}}}
     </div>
   </main>
-<<<<<<< HEAD
 
   {{#if loggedIn}}
   <script src="/js/logout.js"></script>
   {{/if}}
-=======
-  
-  {{!-- {{#if loggedIn}} --}}
-  <script src="/js/logout.js"></script>
-  {{!-- {{/if}} --}}
->>>>>>> b3da452cdc50895883d51ef152a232cce8f43234
   <script src="/js/suggestions.js"></script>
   <script src="/js/searchbar.js"></script>
 </body>
