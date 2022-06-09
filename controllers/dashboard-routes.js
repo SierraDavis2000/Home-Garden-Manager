@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const { Plant, User, Log } = require('../models');
+const sequelize = require('../config/connection');
 
+//keep this HERE (GET ALL PLANTS)
 router.get('/', (req, res) => {
   Plant.findAll({
     where: {
