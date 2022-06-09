@@ -38,22 +38,22 @@ router.get('/', async (req, res) => {
   
 });
 
-/* route for search function
+//route for one plant
 
-router.get('/plants/:id', async (req, res) => {
+router.get('/plant-info/:id', async (req, res) => {
   try {
     const dbPlantData = await Plant.findByPk(req.params.id);
 
     const plant = dbPlantData.get({ plain: true });
 
-    res.render('painting', { plant });
+    res.render('plant-info', { plant });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
 
-*/
+
 
 //login route
 
