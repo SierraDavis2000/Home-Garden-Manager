@@ -6,11 +6,11 @@ const sequelize = require('../../config/connection');
 // get all plants
 router.get('/', (req, res) => {
     Plant.findAll({
-        //order: [['common_name', 'ASC']],
+        order: [['common_name', 'ASC']],
         include: [
             {
                 model: User,
-                attributes: ['id', 'username']
+                attributes: ['email']
             }
         ]
     })
@@ -30,7 +30,7 @@ router.get('/:id', (req, res) => {
         include: [
             {
                 model: User,
-                attributes: ['id', 'username']
+                attributes: ['email']
             }
         ]
     })
