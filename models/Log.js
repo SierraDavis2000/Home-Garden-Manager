@@ -25,6 +25,10 @@ Log.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
+        date_watered: {
+            type: DataTypes.DATE,
+            allowNull:false, 
+        }
     },
     {
         sequelize,
