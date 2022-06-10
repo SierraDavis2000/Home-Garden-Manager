@@ -1,13 +1,13 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Plant, User, Log } = require('../models');
-//const withAuth = require('../utils/auth');
+const withAuth = require('../utils/auth');
 
 //renders plant cards to homepage
 
 router.get('/', async (req, res) => {
   try {
-    const dbPlantData = await Plant.findAll({
+    const options = {
       attributes: [
         'id',
         'common_name',
@@ -21,7 +21,22 @@ router.get('/', async (req, res) => {
         'pest_info',
         'pet_care'
       ],
-    });
+
+      include: [
+        //include User model
+       {
+          model: User,
+          attributes: ['username']
+        },
+      ]
+      
+    };
+    if (req.query.search){
+      options.where = {
+        common_name : req.query.search
+      }
+    }
+    const dbPlantData = await Plant.findAll(options);
 
     const plants = dbPlantData.map((plant) => 
       plant.get({plain : true})
@@ -65,6 +80,7 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+<<<<<<< HEAD
   // add a plant (keep this here in home-routes)
   router.post('/', (req, res) => {
     if (req.session) {
@@ -88,5 +104,7 @@ router.get('/login', (req, res) => {
        });
      }
   });
+=======
+>>>>>>> 23ab33607ffaa0e9de80c91098cb27341ba481db
 
 module.exports = router;
