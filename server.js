@@ -1,5 +1,3 @@
-
-
 const path = require('path');
 const express = require('express');
 const routes = require('./controllers');
@@ -24,13 +22,9 @@ const sess = {
   })
 };
 
-app.engine('handlebars', hbs.engine); //added by Jenna 
-app.set('view engine', 'handlebars'); //added by Jenna
-
 app.use(express.json());
 app.use(express.urlencoded({ extend: true }));
 app.use(express.static(path.join(__dirname, 'public')));
-
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
