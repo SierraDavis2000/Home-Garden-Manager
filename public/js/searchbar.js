@@ -10,14 +10,10 @@ inputBox.onkeyup = (e)=>{
   let emptyArray = [];
   if(userData){
     icon.onclick = ()=>{
-<<<<<<< HEAD
-      webLink = `/plant-info/${userData}`;
-=======
       webLink = `/?search=${userData}`;
->>>>>>> 23ab33607ffaa0e9de80c91098cb27341ba481db
       linkTag.setAttribute("href", webLink);
       linkTag.click();
-     
+    
     }
     emptyArray = suggestions.filter((data)=>{
       return data.toLocaleLowerCase().startsWith(userData.toLocaleLowerCase());
@@ -41,14 +37,10 @@ function select(element){
   let selectData = element.textContent;
   inputBox.value = selectData;
   icon.onclick = ()=>{
-<<<<<<< HEAD
-    webLink = `/plant-info/${selectData}`;
-=======
     webLink = `/?search=${selectData}`;
->>>>>>> 23ab33607ffaa0e9de80c91098cb27341ba481db
     linkTag.setAttribute("href", webLink);
     linkTag.click();
-   
+  
   }
   searchWrapper.classList.remove("active");
   

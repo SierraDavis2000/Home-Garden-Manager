@@ -80,7 +80,6 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-<<<<<<< HEAD
   // add a plant (keep this here in home-routes)
   router.post('/', (req, res) => {
     if (req.session) {
@@ -104,7 +103,5 @@ router.get('/login', (req, res) => {
        });
      }
   });
-=======
->>>>>>> 23ab33607ffaa0e9de80c91098cb27341ba481db
 
 module.exports = router;
