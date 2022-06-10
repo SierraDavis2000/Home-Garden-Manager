@@ -6,5 +6,5 @@ const sequelize = require('../config/connection');
 router.get('/', (req, res) => {
     res.render('add-plant', { loggedIn: true });
   });
-  
+
 module.exports = router;
