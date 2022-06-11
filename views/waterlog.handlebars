@@ -5,10 +5,11 @@
         {{#each waterlogs as |waterlog|}}
         <li>
             {{> waterlog-content waterlog}}
-            <a href="/dashboard/edit/{{waterlog.id}}" class="edit-link">Edit</a>
+            <a href="/waterlog/edit/{{waterlog.id}}" class="edit-waterlog">Edit post</a>
         </li>
         {{/each}}
     </ul>
 </section>
 {{/if}}
-{{!-- <script src="/js/addWaterlog.js"></script> --}}
+
+<script src="/js/deleteWaterlog.js"></script>

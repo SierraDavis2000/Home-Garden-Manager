@@ -1,17 +1,23 @@
-const newFormHandler = async function(event) {
+async function newFormHandler(event) {
   event.preventDefault();
 
-  const postTitle = document.querySelector('input[name="post-title"]').value;
-  const postContent = document.querySelector('textarea[name="post-body"]').value;
+  const date_watered = document.querySelector('#date_watered').value;
+  const plants_watered = document.querySelector('#plants_watered').value;
 
-  await fetch(`/api/post`, {
+  const response = await fetch(`/api/logs`, {
     method: 'POST',
     body: JSON.stringify({
-      postTitle,
-      postContent,
+      date_watered,
+      plants_watered,
     }),
     headers: { 'Content-Type': 'application/json' },
   });
-};
-  
-document.querySelector('#new-post').addEventListener('submit', newFormHandler);
+
+  if (response.ok) {
+    document.location.replace('/waterlog');
+  } else {
+    alert(response.statusText);
+  }
+}
+
+document.querySelector('.new-waterlog-form').addEventListener('submit', newFormHandler);
