@@ -236,6 +236,10 @@ img {
   padding-left: 100px;
 }
 
+ul {
+  list-style: none;
+}
+
 /* LAYOUT */
 .container {
   display: flex;

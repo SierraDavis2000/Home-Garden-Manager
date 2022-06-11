@@ -3,12 +3,17 @@ const { Plant, User, Log } = require('../models');
 const sequelize = require('../config/connection');
 
 //KEEP THIS HERE (waterlog link in NAVBAR)
-// get all watering logs
+// get all watering logs belonging to user
 router.get('/', (req, res) => {
   Log.findAll({
     where: {
       user_id: req.session.user_id
     },
+    attributes: [
+      'user_id',
+      'date_watered',
+      'plants_watered'
+    ],
     //order: [['created_at', 'DESC']],
     include: [
       //include User model
@@ -41,6 +46,7 @@ router.get('/', (req, res) => {
 // router.post('/dashboard', (req, res) => {
 //   Log.create({
 //     user_id: req.session.user_id,
+//     date_watered: req.body.date_watered,
 //     plants_watered: req.body.plants_watered
 //   })
 //   .then(dbLogData => {
