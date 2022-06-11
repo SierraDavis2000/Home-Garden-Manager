@@ -1,13 +1,14 @@
-{{#if posts.length}}
+{{#if waterlogs.length}}
 <section>
-  <h2>Waterlogs</h2>
-    {{#each posts as |post|}}
-      {{> waterlog-content post}}
-    {{/each}}
-  <button type="submit" class="btn"><a class="link" href="/waterlog/edit">Edit</a></button>
+    <h2>Your Waterlogs</h2>
+    <ul>
+        {{#each waterlogs as |waterlog|}}
+        <li>
+            {{> waterlog-content waterlog}}
+            <a href="/dashboard/edit/{{waterlog.id}}" class="edit-link">Edit</a>
+        </li>
+        {{/each}}
+    </ul>
 </section>
 {{/if}}
-
-<button type="submit" class="btn"><a class="link" href="/waterlog/new">+ New WaterLog</a></button>
-
-<script src="/js/addWaterlog.js"></script>
+{{!-- <script src="/js/addWaterlog.js"></script> --}}

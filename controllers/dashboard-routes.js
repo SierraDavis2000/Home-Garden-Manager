@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Plant, User, Log } = require('../models');
 const sequelize = require('../config/connection');
 
-//keep this HERE (GET ALL PLANTS)
+//Gets all plants belonging to user (keep here)
 router.get('/', (req, res) => {
   Plant.findAll({
     where: {
@@ -49,8 +49,4 @@ router.get('/', (req, res) => {
       res.status(500).json(err);
     });
 });
-
-
-
-
 module.exports = router;

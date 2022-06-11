@@ -1,13 +1,13 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Plant, User, Log } = require('../models');
-//const withAuth = require('../utils/auth');
+const withAuth = require('../utils/auth');
 
 //renders plant cards to homepage
 
 router.get('/', async (req, res) => {
   try {
-    const dbPlantData = await Plant.findAll({
+    const options = {
       attributes: [
         'id',
         'common_name',
@@ -21,7 +21,22 @@ router.get('/', async (req, res) => {
         'pest_info',
         'pet_care'
       ],
-    });
+
+      include: [
+        //include User model
+       {
+          model: User,
+          attributes: ['username']
+        },
+      ]
+      
+    };
+    if (req.query.search){
+      options.where = {
+        common_name : req.query.search
+      }
+    }
+    const dbPlantData = await Plant.findAll(options);
 
     const plants = dbPlantData.map((plant) => 
       plant.get({plain : true})
@@ -65,6 +80,29 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+  // add a plant (keep this here in home-routes)
+  router.post('/', (req, res) => {
+    if (req.session) {
+   Plant.create({
+       common_name: req.body.common_name,
+       latin_name: req.body.latin_name,
+       watering_schedule: req.body.watering_schedule,
+       soil_type: req.body.soil_type,
+       light_req: req.body.light_req,
+       fertilizer_req: req.body.fertilizer_req,
+       space_req: req.body.space_req,
+       indoor_outdoor: req.body.indoor_outdoor,
+       pest_info: req.body.pest_info,
+       pet_care: req.body.pet_care,
+       user_id: req.session.user_id
+   })
+       .then(dbPlantData => res.json(dbPlantData))
+       .catch(err => {
+           console.log(err);
+           res.status(500).json(err);
+       });
+     }
+  });
 
 
 module.exports = router;

@@ -10,9 +10,10 @@ inputBox.onkeyup = (e)=>{
   let emptyArray = [];
   if(userData){
     icon.onclick = ()=>{
-      webLink = `/plant-info/${userData}`;
+      webLink = `/?search=${userData}`;
       linkTag.setAttribute("href", webLink);
       linkTag.click();
+    
     }
     emptyArray = suggestions.filter((data)=>{
       return data.toLocaleLowerCase().startsWith(userData.toLocaleLowerCase());
@@ -28,6 +29,7 @@ inputBox.onkeyup = (e)=>{
     }
   }else{
     searchWrapper.classList.remove("active"); //hide autocomplete box
+    
   }
 }
 
@@ -35,11 +37,13 @@ function select(element){
   let selectData = element.textContent;
   inputBox.value = selectData;
   icon.onclick = ()=>{
-    webLink = `/plant-info/${selectData}`;
+    webLink = `/?search=${selectData}`;
     linkTag.setAttribute("href", webLink);
     linkTag.click();
+  
   }
   searchWrapper.classList.remove("active");
+  
 }
 
 function showSuggestions(list){

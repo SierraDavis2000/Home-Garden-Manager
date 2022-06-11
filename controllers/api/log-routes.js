@@ -51,6 +51,7 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
     Log.create({
         user_id: req.session.user_id,
+        date_watered: req.body.date_watered,
         plants_watered: req.body.plants_watered
     })
         .then(dbLogData => res.json(dbLogData))
@@ -64,7 +65,8 @@ router.post('/', (req, res) => {
 router.put('/:id', (req, res) => {
     Log.update(
         {
-            plants_watered: req.body.plants_watered
+        date_watered: req.body.date_watered,
+        plants_watered: req.body.plants_watered
         },
         {
             where: {
