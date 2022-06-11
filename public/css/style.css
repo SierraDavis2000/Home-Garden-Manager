@@ -253,6 +253,10 @@ img {
   margin: 1rem 0 0 0;
 }
 
+ul {
+  list-style: none;
+}
+
 /* LAYOUT */
 .container {
   display: flex;
