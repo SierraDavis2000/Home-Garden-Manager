@@ -11,9 +11,7 @@
 -->
 
 <ul class="plant-list">
-  
-  
-    <section class="card">
+  <section class="card">
      <a href="/plant-info/{{id}}">
         <div class="title">
                         <header>{{common_name}}
@@ -24,13 +22,12 @@
                         <img src="https://via.placeholder.com/300">
                         <h2 class="plant-name">{{common_name}}</h2>
                         <p><i>{{latin_name}}</i></p>
-                    </div>
-                    <div class="meta">
-                        Added by {{user.username}} on
-                        {{created_at}}
-                        {{!-- <a href="/plant/{{id}}">{{comments.length}} comment(s)</a> --}}
+                        <div class="meta">
+                          <p class="creator-name">Added by {{user.username}} on
+                          {{created_at}}</p>
+                          {{!-- <a href="/plant/{{id}}">{{comments.length}} comment(s)</a> --}}
+                        </div>
                     </div>
              </a>
   </section>
-  
-  </ul>
+</ul>
