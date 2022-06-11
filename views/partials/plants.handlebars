@@ -1,21 +1,21 @@
 <ul class="plant-list">
   <section class="card">
-     <a href="/plant-info/{{id}}">
-        <div class="title">
-                        <header>{{common_name}}
-                        </header>
-                    </div>
-                    <div class="card-body">
-                        {{!-- <img src="/images/{{filename}}" alt="{{description}}"> --}}
-                        <img src="https://via.placeholder.com/300">
-                        <h2 class="plant-name">{{common_name}}</h2>
-                        <p><i>{{latin_name}}</i></p>
-                        <div class="meta">
-                          <p class="creator-name">Added by {{user.username}} on
-                          {{created_at}}</p>
-                          {{!-- <a href="/plant/{{id}}">{{comments.length}} comment(s)</a> --}}
-                        </div>
-                    </div>
-             </a>
+    <a href="/plant-info/{{id}}">
+      <div class="title">
+        <header>{{common_name}}</header>
+      </div>
+
+      <div class="card-body">
+          {{!-- <img src="/images/{{filename}}" alt="{{description}}"> --}}
+          <img src="https://via.placeholder.com/300">
+          <h2 class="plant-name">{{common_name}}</h2>
+          <p><i>{{latin_name}}</i></p>
+          <div class="meta">
+            <p class="creator-name">Added by {{user.username}} on
+            {{created_at}}</p>
+            {{!-- <a href="/plant/{{id}}">{{comments.length}} comment(s)</a> --}}
+          </div>
+      </div>
+    </a>
   </section>
 </ul>
