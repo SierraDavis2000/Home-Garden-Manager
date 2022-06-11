@@ -13,7 +13,7 @@ async function addPlantHandler(event) {
   const pet_care = document.querySelector('#pet_care').value;
 
   if (common_name) {
-    const response =  await fetch(`/api/plants`, {
+    const response =  await fetch(`/api/plants`, {      
     method: 'POST',
     body: JSON.stringify({
       common_name,

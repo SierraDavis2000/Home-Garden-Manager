@@ -2,7 +2,8 @@ const router = require('express').Router();
 const { Plant, User, Log } = require('../models');
 const sequelize = require('../config/connection');
 
-//Gets all plants belonging to user (keep here)
+//Gets all plants belonging to user
+//and renders to the Dashboard
 router.get('/', (req, res) => {
   Plant.findAll({
     where: {
@@ -49,4 +50,10 @@ router.get('/', (req, res) => {
       res.status(500).json(err);
     });
 });
+
+//renders the /add-plant HTML
+router.get('/add-plant', (req, res) => {
+  res.render('add-plant', { loggedIn: true });
+});
+
 module.exports = router;
