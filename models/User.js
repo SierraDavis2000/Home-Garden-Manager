@@ -1,4 +1,3 @@
-
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 const bcrypt = require('bcrypt');
@@ -36,11 +35,12 @@ User.init(
             validate: {
                 len: [6]
             }
+        },
+        createdAt: {
+            type: DataTypes.DATEONLY
         }
     },
-
     {
-
         // hash the password for security
         hooks: {
             async beforeCreate(newUserData) {
@@ -48,8 +48,6 @@ User.init(
                 return newUserData;
             }
         },
-
-
         sequelize,
         timestamps: false,
         freezeTableName: true,

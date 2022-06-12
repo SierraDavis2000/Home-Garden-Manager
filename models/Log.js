@@ -26,8 +26,11 @@ Log.init(
             allowNull: false,
         },
         date_watered: {
-            type: DataTypes.DATE,
+            type: DataTypes.DATEONLY,
             allowNull:false, 
+        },
+        createdAt: {
+            type: DataTypes.DATEONLY
         }
     },
     {
