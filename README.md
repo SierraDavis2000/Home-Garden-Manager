@@ -24,7 +24,7 @@ Created with JavaScript, Node.js, MySQL, Handlebars, CSS, with Sequelize, Expres
 
 A .env file will need to be created at the root of the project, with the following code, including the user's password, and a string for the session secret:
 
-*DB_NAME='blog_db'*
+*DB_NAME='garden_db'*
 
 *DB_USER='root'*
 
@@ -84,4 +84,4 @@ Add new watering log
 
 [Home Garden Manager Repo on GitHub](https://github.com/SierraDavis2000/Home-Garden-Manager)
 
-[Home Garden Manager Deployed on Heroku](https://shrouded-beach-72598.herokuapp.com/)
+[Home Garden Manager Deployed on Heroku](https://warm-harbor-34559.herokuapp.com/)
