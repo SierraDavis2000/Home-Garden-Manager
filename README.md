@@ -6,7 +6,7 @@ Team 3 - Sierra Davis, Rosemarie Halim, Phil McGarty, Jenna Saikaly
 
 ## Description
 
-A site that allows plant enthusiasts to easily find care instructions for plants they own, as well as contribute to the plant database, and create logs to track their plant watering.
+A site that allows plant enthusiasts to easily find care instructions for plants they own, as well as contribute to the plant database, and create logs to track their plant watering activity.
 
 Created with JavaScript, Node.js, MySQL, Handlebars, CSS, with Sequelize, Express.js, Express-Session, and bcrypt packages.
 
@@ -46,7 +46,7 @@ Install all necessary packages, by typing:
 
 *"npm i"*
 
-To start the server, type the following in a terminal: 
+To start the server, type the following in a terminal window: 
 
 *"npm start"*
 
@@ -67,9 +67,17 @@ This product is currently a MVP, and in future will include photos of each plant
 ## Tests
 
 Home Garden Manager Homepage
-![Home Garden Manager Homepage](./public/images/homepage.png)
+![Home Garden Manager Homepage](./public/images/screenshots/homepage.png)
 
+Login and sign-up prompts
+![Login Page](./public/images/screenshots/login.png)
 
+Input fields for adding a new plant
+![Add Plant Page](./public/images/screenshots/add-plant.png)
+
+Add new watering log
+
+![Add Watering Log](./public/images/screenshots/add-water-log.png)
 
 ---
 ## Links
