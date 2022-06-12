@@ -1,9 +1,10 @@
 const router = require('express').Router();
-const { Plant, User, Log } = require('../models');
+const { User, Log } = require('../models');
+const withAuth = require('../utils/auth');
 
 // get all watering logs belonging to user
 //and renders to the WATERLOG page
-router.get('/', (req, res) => {
+router.get('/', withAuth, (req, res) => {
   Log.findAll({
     where: {
       user_id: req.session.user_id
@@ -14,22 +15,11 @@ router.get('/', (req, res) => {
       'date_watered',
       'plants_watered'
     ],
-    //order: [['created_at', 'DESC']],
     include: [
-      //include User model
       {
         model: User,
         attributes: ['username']
       },
-      // include the Comment model here:
-      //  {
-      //   model: Comment,
-      //   attributes: ['id', 'comment_text', 'plant_id', 'user_id', 'created_at'],
-      //   include: {
-      //     model: User,
-      //     attributes: ['username']
-      //   }
-      // },
     ]
   })
     .then(dbLogData => {
@@ -49,7 +39,7 @@ router.get('/add-waterlog', (req, res) => {
 
 //gets the info regarding which log to edit
 //and renders it to the EDIT-WATERLOG page
-router.get('/edit/:id', (req, res) => {
+router.get('/edit/:id', withAuth, (req, res) => {
   Log.findByPk(req.params.id, {
     attributes: [
       'id',
@@ -58,14 +48,6 @@ router.get('/edit/:id', (req, res) => {
       'plants_watered',
     ],
     include: [
-      // {
-      //   model: Comment,
-      //   attributes: ['id', 'comment_text', 'Log_id', 'user_id', 'created_at'],
-      //   include: {
-      //     model: User,
-      //     attributes: ['username']
-      //   }
-      // },
       {
         model: User,
         attributes: ['username']
@@ -74,11 +56,9 @@ router.get('/edit/:id', (req, res) => {
   })
     .then(dbLogData => {
       if (dbLogData) {
-        // serialize data before passing to template
-        const Log = dbLogData.get({ plain: true });
-
-        res.render('edit-waterlog', {
-          Log,
+      const waterlogs = dbLogData.get({ plain: true });
+      res.render('edit-waterlog', {
+          waterlogs,
           loggedIn: true
         });
       } else {

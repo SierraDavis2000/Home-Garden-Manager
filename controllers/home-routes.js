@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const { Plant, User, } = require('../models');
-const withAuth = require('../utils/auth');
 
 //renders plant cards to homepage
 
@@ -18,17 +17,15 @@ router.get('/', async (req, res) => {
         'space_req',
         'indoor_outdoor',
         'pest_info',
-        'pet_care'
+        'pet_care',
+        'createdAt'
       ],
-
       include: [
-        //include User model
         {
           model: User,
           attributes: ['username']
         },
       ]
-
     };
     if (req.query.search) {
       options.where = {
@@ -49,8 +46,6 @@ router.get('/', async (req, res) => {
     console.log(err);
     res.status(500).json(err);
   }
-
-
 });
 
 //route for one plant
@@ -67,8 +62,6 @@ router.get('/plant-info/:id', async (req, res) => {
     res.status(500).json(err);
   }
 });
-
-
 
 //login route
 
