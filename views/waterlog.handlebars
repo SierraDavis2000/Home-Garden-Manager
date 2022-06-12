@@ -1,23 +1,20 @@
 <div>
-{{#if waterlogs.length}}
-<section>
-    <h1>Your Waterlogs</h1>
-    <ul>
-        {{#each waterlogs as |waterlog|}}
-        <li>
-            {{> waterlog-content waterlog}}
-        </li>
-        {{/each}}
-    </ul>   
-</section>
-{{else}}
-<section>
-    <h1> YOU HAVE NOT CREATED ANY WATERLOGS YET</h1>
-    <a href="/waterlog/add-waterlog">
-        <button>Add a Water Log</button>
-        </a>
-</section>
-{{/if}}
+    {{#if waterlogs.length}}
+    <section>
+        <h1>Your Waterlogs</h1>
+        <ul>
+            {{#each waterlogs as |waterlog|}}
+            <li>
+                {{> waterlog-content waterlog}}
+            </li>
+            {{/each}}
+        </ul>
+    </section>
+    {{else}}
+    <section>
+        <h1> YOU HAVE NOT CREATED ANY WATERLOGS YET</h1>
+    </section>
+    {{/if}}
 </div>
 
 <script src="/js/deleteWaterlog.js"></script>

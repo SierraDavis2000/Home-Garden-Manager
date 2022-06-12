@@ -14,4 +14,9 @@
       <li><b>Toxicity for Pets:</b> {{pet_care}}</li>
     </ul>
   </div>
+  {{#if user.username}}
+  <div class="meta">
+    <p class="creator-name">Added by {{user.username}} on {{createdAt}}</p>
+  </div>
+  {{/if}}
 </section>
