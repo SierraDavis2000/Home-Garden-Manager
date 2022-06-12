@@ -1,15 +1,23 @@
+<div>
 {{#if waterlogs.length}}
 <section>
-    <h2>Your Waterlogs</h2>
+    <h1>Your Waterlogs</h1>
     <ul>
         {{#each waterlogs as |waterlog|}}
         <li>
             {{> waterlog-content waterlog}}
-            <a href="/waterlog/edit/{{waterlog.id}}" class="edit-waterlog">Edit post</a>
         </li>
         {{/each}}
-    </ul>
+    </ul>   
+</section>
+{{else}}
+<section>
+    <h1> YOU HAVE NOT CREATED ANY WATERLOGS YET</h1>
+    <a href="/waterlog/add-waterlog">
+        <button>Add a Water Log</button>
+        </a>
 </section>
 {{/if}}
+</div>
 
 <script src="/js/deleteWaterlog.js"></script>

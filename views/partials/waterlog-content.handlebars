@@ -1,9 +1,9 @@
 <div class="card">
    <div class="card-header">
-      <h1>Watered: {{format_date date_watered}}</h1>
+      <h3>Watered: {{format_date date_watered}}</h3>
    </div>
    <div class="card-body">
    <p>{{plants_watered}}</p>
-   <span>Log #</span><span name="waterlog-id">{{id}}</span>
+   <a href="/waterlog/edit/{{id}}" class="edit-waterlog">Edit post</a>
    </div>
 </div>
