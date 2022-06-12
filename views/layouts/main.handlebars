@@ -6,13 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home Garden</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Calistoga&display=swap">
   <link rel="stylesheet" type="text/css" href="/css/jass.css">
   <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 
 <body>
   <header>
-    <h1>Welcome to Home Garden</h1>
+    <h1 class="title">Welcome to Home Garden</h1>
   </header>
   
   <nav>
@@ -37,13 +38,13 @@
         <div class="icon"><i class="fas fa-search"></i></div>
       </div>
 
-      <div>
+      <div class="add-btn-section">
         {{#if loggedIn}}
         <a href="/add-plant">
-          <button>Add New Plant</button>
+          <button class="add-btn">Add New Plant</button>
         </a>
         <a href="/add-waterlog">
-        <button>Add a Water Log</button>
+        <button class="add-btn">Add a Water Log</button>
         </a>
         {{/if}}
       </div>
