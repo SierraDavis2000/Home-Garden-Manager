@@ -985,6 +985,11 @@ a:hover {
   margin: 5px;
 }
 
+.main-btn {
+  padding:10px;
+  margin: 10px;
+}
+
 .btn {
   text-align: center;
   display: inline-block;
