@@ -1,10 +1,10 @@
 const router = require('express').Router();
-const { Plant, User, Log } = require('../models');
-const sequelize = require('../config/connection');
+const { Plant, User, } = require('../models');
+const withAuth = require('../utils/auth');
 
 //Gets all plants belonging to user
 //and renders to the Dashboard
-router.get('/', (req, res) => {
+router.get('/', withAuth, (req, res) => {
   Plant.findAll({
     where: {
       user_id: req.session.user_id

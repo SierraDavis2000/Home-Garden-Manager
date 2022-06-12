@@ -42,7 +42,8 @@ router.get('/', async (req, res) => {
     )
 
     res.render('homepage', {
-      plants
+      plants,
+      loggedIn: req.session.loggedIn
     });
   } catch (err) {
     console.log(err);
@@ -60,7 +61,7 @@ router.get('/plant-info/:id', async (req, res) => {
 
     const plant = dbPlantData.get({ plain: true });
 
-    res.render('plant-info', { plant });
+    res.render('plant-info', { plant, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Plant } = require('../../models');
+const { User, } = require('../../models');
 
 // get all users
 router.get('/', (req, res) => {
@@ -41,9 +41,6 @@ router.post('/', (req, res) => {
         email: req.body.email,
         password: req.body.password
     })
-        //    //Jenna updating .then to include login session code ln 47-55
-         //use this .then if session code doesn't work 
-        // .then(dbUserData => res.json(dbUserData))
         .then(dbUserData => {
             req.session.save(() => {
                 req.session.user_id = dbUserData.id;
@@ -76,7 +73,6 @@ router.post('/login', (req, res) => {
             res.status(400).json({ message: 'Password incorrect' });
             return;
         }
-           //Jenna adding lines 80-87 for login session 
             req.session.save(() => {
             // declare session variables
             req.session.user_id = dbUserData.id;

@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { User, Plant } = require('../../models');
-const sequelize = require('../../config/connection');
+const withAuth = require('../../utils/auth');
 
 
 // get all plants
@@ -48,7 +48,7 @@ router.get('/:id', (req, res) => {
 });
 
 // add a plant
-router.post('/', (req, res) => {
+router.post('/', withAuth, (req, res) => {
     Plant.create({
         common_name: req.body.common_name,
         latin_name: req.body.latin_name,
@@ -70,7 +70,7 @@ router.post('/', (req, res) => {
 });
 
 // update plant info
-router.put('/:id', (req, res) => {
+router.put('/:id', withAuth, (req, res) => {
     Plant.update(
         {
             common_name: req.body.common_name,
@@ -104,7 +104,7 @@ router.put('/:id', (req, res) => {
 });
 
 // delete a plant
-router.delete('/:id', (req, res) => {
+router.delete('/:id', withAuth, (req, res) => {
     Plant.destroy({
         where: {
             id: req.params.id
