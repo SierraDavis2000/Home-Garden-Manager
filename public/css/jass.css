@@ -395,6 +395,18 @@ h6 {
   font-size: 1rem;
 }
 
+.waterlog-header {
+  text-align:center;
+  font-weight:bolder;
+  font-size: 4rem;
+}
+
+.dashboard-header {
+  text-align:center;
+  font-weight:bolder;
+  font-size: 4rem;
+}
+
 p {
   font-size: 1.1rem;
   margin: 0 0 1rem;
@@ -968,6 +980,10 @@ a:hover {
 .display-flex {
   display: flex !important;
 }
+.edit-btn {
+  padding: 5px;
+  margin: 5px;
+}
 
 .btn {
   text-align: center;
@@ -1088,8 +1104,9 @@ a:hover {
 
 .card .card-header {
   padding: 0.375rem;
-  background-color: #2d3e50;
-  color: #86938F;
+  background-color: #3D5852;
+  color: #E3E4E3; 
+  text-align: center;
 }
 
 .card .card-body {
