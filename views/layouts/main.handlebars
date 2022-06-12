@@ -36,17 +36,18 @@
         </div>
         <div class="icon"><i class="fas fa-search"></i></div>
       </div>
-
+{{#if loggedIn}}
       <div>
-        {{#if loggedIn}}
         <a href="/dashboard/add-plant">
-          <button>Add New Plant</button>
+          <button class="main-btn">Add New Plant</button>
         </a>
+        </div>
+        <div>
         <a href="/waterlog/add-waterlog">
-        <button>Add a Water Log</button>
+        <button class="main-btn">Add a Water Log</button>
         </a>
-        {{/if}}
       </div>
+      {{/if}}
     </div>
 
     <div class="gallery">

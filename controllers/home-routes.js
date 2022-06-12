@@ -82,4 +82,9 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+// Route to display static src images
+router.get("/static", (req, res) => {
+  res.render("static");
+});
+
 module.exports = router;

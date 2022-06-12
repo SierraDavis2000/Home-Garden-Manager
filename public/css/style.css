@@ -76,12 +76,16 @@ nav a:hover {
 
 /* Searchbar */
 .wrapper{
+  display: flex;
+  flex-flow: column wrap;
+  align-content: flex-start;
+  align-items: center;
   width: 450px;
   margin: 25px auto;
 }
 .search-input{
   width: 400px;
-  margin: 0 35px
+  margin: 20px 35px
 }
 .wrapper .search-input{
   background: #fff;
