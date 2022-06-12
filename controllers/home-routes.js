@@ -52,7 +52,15 @@ router.get('/', async (req, res) => {
 
 router.get('/plant-info/:id', async (req, res) => {
   try {
-    const dbPlantData = await Plant.findByPk(req.params.id);
+    const dbPlantData = await Plant.findByPk(req.params.id, 
+      include: [
+        //include User model
+        {
+          model: User,
+          attributes: ['username']
+        },
+      ]                              
+      );
 
     const plant = dbPlantData.get({ plain: true });
 
