@@ -1,0 +1,19 @@
+<ul class="plant-list">
+  <section class="card">
+    <a href="/plant-info/{{id}}">
+      <div class="title">
+        <header>{{common_name}}</header>
+      </div>
+      <div class="card-body">
+        <img src="https://via.placeholder.com/300">
+        <h2 class="plant-name">{{common_name}}</h2>
+        <p><i>{{latin_name}}</i></p>
+        {{#if user.username}}
+        <div class="meta">
+          <p class="creator-name">Added by {{user.username}} on {{createdAt}}</p>
+        </div>
+        {{/if}}
+      </div>
+    </a>
+  </section>
+</ul>

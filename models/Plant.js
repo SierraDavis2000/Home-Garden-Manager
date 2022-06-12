@@ -61,6 +61,9 @@ Plant.init(
                 model: 'user',
                 key: 'id'
             }
+        },
+        createdAt: {
+            type: DataTypes.DATEONLY
         }
     },
     {

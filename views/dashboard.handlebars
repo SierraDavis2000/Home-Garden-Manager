@@ -1,0 +1,16 @@
+{{#if plants.length}}
+<section>
+    <h1 class="dashboard-header">Your Plants</h1>
+    <div>
+        {{#each plants as |plant|}}
+        <div>
+            {{> plants}}
+        </div>
+        {{/each}}
+    </div>
+    {{else}}
+    <div>
+        <h1> YOU HAVE NOT ADDED ANY PLANTS TO THE DATABASE YET</h1>
+    </div>
+</section>
+{{/if}}

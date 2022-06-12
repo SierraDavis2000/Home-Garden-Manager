@@ -1,0 +1,20 @@
+<div class="card">
+  <h3 class="card-header">Edit Waterlog
+  </h3>
+    <form class="card-body edit-waterlog-form">
+      <div>
+        <label for="date_watered" class="form-label">Date Watered</label>
+        <input name="date_watered" class="date_watered" type="date" value="{{waterlogs.date_watered}}" />
+      </div>
+      <div>
+        <label class="form-label" for="plants_watered">Plants Watered</label>
+        <input id="plants_watered" name="plants_watered" class="plants_watered" value="{{waterlogs.plants_watered}}" />
+
+      </div>
+      <button type="submit" class="edit-btn save-waterlog-btn">Save waterlog</button>
+      <button type="button" class="edit-btn delete-waterlog-btn">Delete waterlog</button>
+    </form>
+</div>
+
+<script src="/js/editWaterlog.js"></script>
+<script src="/js/deleteWaterlog.js"></script>

@@ -1,13 +1,20 @@
-{{#if posts.length}}
-<section>
-  <h2>Waterlogs</h2>
-    {{#each posts as |post|}}
-      {{> waterlog-content post}}
-    {{/each}}
+<div>
+    {{#if waterlogs.length}}
+    <section>
+        <h1 class="waterlog-header">Your Waterlogs</h1>
+        <ul>
+            {{#each waterlogs as |waterlog|}}
+            <li>
+                {{> waterlog-content waterlog}}
+            </li>
+            {{/each}}
+        </ul>
+    </section>
+    {{else}}
+    <section>
+        <h1> YOU HAVE NOT CREATED ANY WATERLOGS YET</h1>
+    </section>
+    {{/if}}
+</div>
 
-</section>
-{{/if}}
-
-<button type="submit" class="btn"><a class="link" href="/waterlog/new">+ New WaterLog</a></button>
-
-<script src="/js/add.js"></script>
+<script src="/js/deleteWaterlog.js"></script>

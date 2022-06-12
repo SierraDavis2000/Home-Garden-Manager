@@ -1,21 +1,22 @@
-<section class="card">
-  <a href="/plant/{{id}}">
-    <header>{{title}}</header>
-
-    <div class="card-body">
-      <img src="/images/{{filename}}" alt="{{description}}">
-      <h2 class="plant-name">{{plantname}}</h2>
-      <p>{{scientificName}}</p>
-      <ul class="plant-info">
-        <li>{{wateringInfo}}</li>
-        <li>{{soilInfo}}</li>
-        <li>{{lightInfo}}</li>
-        <li>{{fertilizerInfo}}</li>
-        <li>{{spaceInfo}}</li>
-        <li>{{indoorInfo}}</li>
-        <li>{{pestInfo}}</li>
-        <li>{{toxicityInfo}}</li>
-      </ul>
-    </div>
-  </a>
+<section class="info-card">
+  <div class="info-card-body">
+    <img src="https://via.placeholder.com/300">
+    <h2 class="plant-name">{{common_name}}</h2>
+    <p><i>{{latin_name}}</i></p>
+    <ul class="plant-info">
+      <li><b>Watering Schedule:</b> {{watering_schedule}}</li>
+      <li><b>Soil Type:</b> {{soil_type}}</li>
+      <li><b>Light Requirements:</b> {{light_req}}</li>
+      <li><b>Fertilizer Requirements:</b> {{fertilizer_req}}</li>
+      <li><b>Space Requirements:</b> {{space_req}}</li>
+      <li><b>Indoor/Outdoor:</b> {{indoor_outdoor}}</li>
+      <li><b>Pest Information:</b> {{pest_info}}</li>
+      <li><b>Toxicity for Pets:</b> {{pet_care}}</li>
+    </ul>
+  </div>
+  {{#if user.username}}
+  <div class="meta">
+    <p class="creator-name">Added by {{user.username}} on {{createdAt}}</p>
+  </div>
+  {{/if}}
 </section>
